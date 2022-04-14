@@ -1,0 +1,5 @@
+export * from "./Anexos/Anexo1"
+export * from "./Anexos/Anexo2"
+export * from "./Anexos/Anexo3"
+export * from "./Anexos/Anexo4"
+export * from "./Anexos/Anexo5"
