@@ -5,10 +5,13 @@
   "main": "main.js",
   "scripts": {
     "tests": "tsc && jest ./dist/tests",
-    "ts": "tsc && node ./dist/main.js",
-    "dev": "nodemon --watch 'src/' --exec 'tsc' -e ts"
+    "ts": "tsc && node ./dist/src/main.js",
+    "dev": "nodemon --watch src/ --exec tsc --skipLibCheck -e ts"
   },
   "author": "Wesley Serafim <wsadesigner@gmail.com>",
+  "contributors": [
+    "Misteregis <misteregis@gmail.com> (https://github.com/misteregis)"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^27.4.1",
