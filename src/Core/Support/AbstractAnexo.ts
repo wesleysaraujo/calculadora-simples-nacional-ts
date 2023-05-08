@@ -117,8 +117,8 @@ export abstract class AbstractAnexo implements AnexoInterface {
             });
         } else {
             Object.assign(json, {
-                valorIcms: aliquota,
-                aliquotaIcms: valor,
+                valorIcms: valor,
+                aliquotaIcms: aliquota,
                 aliquotaEfetivaIcms: aliquotaEfetiva
             });
         }
