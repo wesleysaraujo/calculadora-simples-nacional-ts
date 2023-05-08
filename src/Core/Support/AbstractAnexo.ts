@@ -25,14 +25,26 @@ export abstract class AbstractAnexo implements AnexoInterface {
 
     readonly calcularFaixaAtual  = (): void => {
         if (typeof this.faixas !== undefined) {
-            let faixaAtual = this.faixas.filter((faixa: Faixa) => {
-                return this.receitaBrutaTotal12 >= faixa.de
-                && this.receitaBrutaTotal12 <= faixa.ate
-            }).reduce((faixa: Faixa) => faixa)
+            let faixaAtual;
 
-            this.setFaixaAtual(faixaAtual)
+            try {
+                faixaAtual = this.faixas.filter((faixa) => {
+                    return this.receitaBrutaTotal12 >= faixa.de
+                        && this.receitaBrutaTotal12 <= faixa.ate;
+                }).reduce((faixa: Faixa) => faixa);
+            } catch (error) {
+                faixaAtual = this.faixas.reduce((maior, objeto) => {
+                    if (objeto.ate > maior.ate) {
+                        return objeto;
+                    } else {
+                        return maior;
+                    }
+                });
+            }
 
-            return
+            this.setFaixaAtual(faixaAtual);
+
+            return;
         }
 
         throw new Error('Faixas não declaradas no anexo')
